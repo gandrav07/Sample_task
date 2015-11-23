@@ -1,0 +1,41 @@
+Use TestNG framework
+
+System.setProperty("webdriver.chrome.driver","D://chromedriver.exe");
+driver = new ChromeDriver();
+WebDriverWait wait = new WebDriverWait(driver,10);
+
+
+
+driver.findElement(By.linkText("My Account")).click();
+
+wait.until(ExpectedConditions.visibilityOfElementLocated(By.linkeText("Sign In"));
+driver.findElement(By.linkText("Sign In")).click();
+
+wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("login-username"));
+driver.findElement(By.id("login-username")).sendKeys("venkateshgpec@gmail.com");
+driver.findElement(By.id("login-password")).sendKeys("Welcome@123");
+
+
+//driver.findElement(By.cssSelector("button[type='submit'][class='btn login-sign-in-btn js-login-sign-in btn-block-max-s btn-block-max-s'])).click();
+driver.findElement(By.linkText("Sign In")).click();
+
+
+wait.until(ExpectedConditions.visibilityOfElementLocated(By.class("recent-orders-heading")));
+
+//driver.getPageSource().contains("Welcome to your Walmart account!");
+
+driver.findElement(By.id("search")).sendKeys("tv");
+
+Thread.sleep(4000);
+
+driver.findElement(By.cssSelector("#tile-container > div:nth-child(1) > div > div > h4 > a")).click();
+
+wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("WMItemAddToCartBtn")));
+driver.findElement(By.id("WMItemAddToCartBtn")).click();
+
+
+
+///verify the message is available or not 
+
+driver.getPageSource().contains("You just added 1 item (1 item total)");
+
